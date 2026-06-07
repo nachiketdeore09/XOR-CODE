@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg-900: #080C16;
+  --color-bg-800: #0D1321;
+  --color-bg-700: #111C2E;
+  --color-bg-600: #162338;
+  --color-bg-500: #1C2D45;
+  --color-border-dark: #1A2E48;
+  --color-border: #243B55;
+  --color-border-light: #2E4A68;
+  --color-blue: #3B82F6;
+  --color-blue-light: #60A5FA;
+  --color-violet: #7C3AED;
+  --color-violet-light: #A78BFA;
+  --color-cyan: #06B6D4;
+  --color-emerald: #10B981;
+  --color-emerald-light: #34D399;
+  --color-amber: #F59E0B;
+  --color-red: #EF4444;
+  --color-red-light: #F87171;
+  --color-text: #E2EEFF;
+  --color-text-secondary: #8BA4C0;
+  --color-text-muted: #4D6280;
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', system-ui, sans-serif;
+  background-color: #080C16;
+  color: #E2EEFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #0D1321; }
+::-webkit-scrollbar-thumb { background: #243B55; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #2E4A68; }
+
+.glass {
+  background: rgba(13, 19, 33, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(36, 59, 85, 0.6);
+}
+.glass-hover:hover {
+  background: rgba(22, 35, 56, 0.85);
+  border-color: rgba(46, 74, 104, 0.8);
+}
+
+.glow-blue { box-shadow: 0 0 24px rgba(59,130,246,0.18), 0 0 48px rgba(59,130,246,0.06); }
+.glow-violet { box-shadow: 0 0 24px rgba(124,58,237,0.18), 0 0 48px rgba(124,58,237,0.06); }
+
+.gradient-text {
+  background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes gradient-border {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animated-border {
+  background: linear-gradient(90deg, #3B82F6, #7C3AED, #06B6D4, #3B82F6);
+  background-size: 200% 200%;
+  animation: gradient-border 4s ease infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #0D1321 25%, #162338 50%, #0D1321 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+  border-radius: 4px;
+}
+
+@keyframes typing-dot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.35; }
+  30% { transform: translateY(-5px); opacity: 1; }
+}
+.typing-dot:nth-child(1) { animation: typing-dot 1.2s ease-in-out infinite 0s; }
+.typing-dot:nth-child(2) { animation: typing-dot 1.2s ease-in-out infinite 0.18s; }
+.typing-dot:nth-child(3) { animation: typing-dot 1.2s ease-in-out infinite 0.36s; }
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+.online-ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #10B981;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+.nav-active {
+  background: linear-gradient(90deg, rgba(59,130,246,0.15) 0%, rgba(59,130,246,0.05) 100%);
+  border-left: 2px solid #3B82F6;
+}
+
+.code-block {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 12.5px;
+  line-height: 1.65;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink { animation: blink-cursor 1s step-end infinite; }
+
+@keyframes float-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.float-up { animation: float-up 0.35s ease forwards; }
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.slide-in { animation: slide-in-right 0.3s ease forwards; }
